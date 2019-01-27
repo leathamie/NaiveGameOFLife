@@ -38,7 +38,7 @@ public class Game {
 				break;
 			}
 		}
-		System.out.println("Mort à la géération " + nbGenerations);
+		System.out.println("Mort à la géération " + nbGenerations-1);
 	}
 	static int[][] nextStep(int [][] g) {
 		boolean stateEnd = true;
@@ -57,7 +57,6 @@ public class Game {
 	}
 	
 	static int cellNextState(int[][]g, int x, int y){
-		//System.out.println("Cell : ["+x+","+y+"]"); 
 		int count = 0;
 		int a; 
 		int b;
@@ -74,16 +73,13 @@ public class Game {
 				}else if(j > size -1) {
 					b = 0;
 				}
-				//System.out.println("["+a+","+b+"]");
 				if (g[a][b] == 1) {
 					
 					count += 1;
 				}
 			}	
 		}
-		//System.out.println(x+","+ y+ " nb voisins" + count);
 		count = count - g[x][y];
-		//System.out.println(x+","+ y+ " nb voisins" + count);
 		if (count == 3) {
 			return 1;
 		}if (count == 2 && g[x][y] == 1) {
